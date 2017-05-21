@@ -1,5 +1,5 @@
-from __modes.CsFPM import *
-from __modes.CsMSM import *
+from .__modes.CsFPM import *
+from .__modes.CsMSM import *
 
 class Singleton(type):
     _instances = {}
@@ -8,11 +8,7 @@ class Singleton(type):
             cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
         return cls._instances[cls]
 
-class CsCntlr(object):
-    __metaclass__ = Singleton
-    
-    # return:
-    # 1: manual setting mode, 0: fixed period mode
+class CsCntlr(object, metaclass=Singleton):
     def __read_current_mode(self, cntlr):
         control_bits = cntlr.get_ctrl_bits()
         current_mode = control_bits & cntlr.TINT_MODE

@@ -1,4 +1,4 @@
-from CsABC import *
+from .CsABC import *
 import time
 
 class CsFPM(CsABC):
@@ -31,7 +31,7 @@ class CsFPM(CsABC):
     def auto(self, gain='', tint=-1, quiet=False):
         if not quiet:
             print('\n####################')
-            print(self.name)
+            print((self.name))
         self.reset_adc_and_disable_standby_mode()
         if gain:
             if gain.lower() == 'high':
@@ -45,7 +45,7 @@ class CsFPM(CsABC):
             self.set_tint(tint, quiet=quiet)
         measurement_time = self.calcMeasurementTime()
         if not quiet:
-            print('Measurement time: ' + str(measurement_time) + ' ms\n')
+            print(('Measurement time: ' + str(measurement_time) + ' ms\n'))
             """
             print('before')
             d = self.getData()
@@ -61,8 +61,8 @@ class CsFPM(CsABC):
         d = self.getData()
         if not quiet:
             #print( 'ctrl: ' + str(bin(d['ctrl'])) )
-            print( 'red: ' + str(d['red']) )
-            print( 'green: ' + str(d['green']) )
-            print( 'blue: ' + str(d['blue']) )
-            print( 'ir: ' + str(d['ir']) )
+            print(( 'red: ' + str(d['red']) ))
+            print(( 'green: ' + str(d['green']) ))
+            print(( 'blue: ' + str(d['blue']) ))
+            print(( 'ir: ' + str(d['ir']) ))
         return d

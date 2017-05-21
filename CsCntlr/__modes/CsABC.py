@@ -2,9 +2,7 @@ from abc import ABCMeta
 from abc import abstractmethod
 import smbus
 
-class CsABC(object):
-    __metaclass__ = ABCMeta
-    
+class CsABC(object, metaclass=ABCMeta):
     """
     Abbreviations:
         ADDRESS: ADDR,

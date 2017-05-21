@@ -1,4 +1,4 @@
-from CsABC import *
+from .CsABC import *
 import time
 
 class CsMSM(CsABC):
@@ -51,7 +51,7 @@ class CsMSM(CsABC):
     def auto(self, gain='', man_tint=-1, tint=-1, quiet=False):
         if not quiet:
             print('\n####################')
-            print(self.name)
+            print((self.name))
         self.reset_adc_and_disable_standby_mode()
         if gain:
             if gain.lower() == 'high':
@@ -66,7 +66,7 @@ class CsMSM(CsABC):
             self.set_tint(tint, quiet=quiet)
         measurement_time = self.calcMeasurementTime()
         if not quiet:
-            print('Measurement time: ' + str(measurement_time) + ' ms\n')
+            print(('Measurement time: ' + str(measurement_time) + ' ms\n'))
             """
             print('before')
             d = self.getData()
@@ -84,8 +84,8 @@ class CsMSM(CsABC):
         if not quiet:
             #print( 'ctrl: ' + str(bin(d['ctrl'])) )
             #print( 'man_tint: ' + str(d['man_tint']) )
-            print( 'red: ' + str(d['red']) )
-            print( 'green: ' + str(d['green']) )
-            print( 'blue: ' + str(d['blue']) )
-            print( 'ir: ' + str(d['ir']) )
+            print(( 'red: ' + str(d['red']) ))
+            print(( 'green: ' + str(d['green']) ))
+            print(( 'blue: ' + str(d['blue']) ))
+            print(( 'ir: ' + str(d['ir']) ))
         return d
